@@ -1,0 +1,259 @@
+Script started on 2019-10-24 10:03:49-06:00
+]0;ayman.shahriar@csa2:~/cpsc-355/assignment3ayman.shahriar@csa2:~/cpsc-355/assignment3$ gdb assign3
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from assign3...done.
+(gdb) b main
+Breakpoint 1 at 0x400600: file assignment3.s, line 48.
+(gdb) b 83
+Breakpoint 2 at 0x400650: file assignment3.s, line 83.
+(gdb) b 134
+Breakpoint 3 at 0x4006cc: file assignment3.s, line 134.
+(gdb) r
+Starting program: /home/uga/ayman.shahriar/cpsc-355/assignment3/assign3 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-38.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+
+Breakpoint 1, main () at assignment3.s:48
+48	assignment3.s: No such file or directory.
+(gdb) c
+Continuing.
+v[0]: 103
+v[1]: 198
+v[2]: 105
+v[3]: 115
+v[4]: 81
+v[5]: 255
+v[6]: 74
+v[7]: 236
+v[8]: 41
+v[9]: 205
+v[10]: 186
+v[11]: 171
+v[12]: 242
+v[13]: 251
+v[14]: 227
+v[15]: 70
+v[16]: 124
+v[17]: 194
+v[18]: 84
+v[19]: 248
+v[20]: 27
+v[21]: 232
+v[22]: 231
+v[23]: 141
+v[24]: 118
+v[25]: 90
+v[26]: 46
+v[27]: 99
+v[28]: 51
+v[29]: 159
+v[30]: 201
+v[31]: 154
+v[32]: 102
+v[33]: 50
+v[34]: 13
+v[35]: 183
+v[36]: 49
+v[37]: 88
+v[38]: 163
+v[39]: 90
+v[40]: 37
+v[41]: 93
+v[42]: 5
+v[43]: 23
+v[44]: 88
+v[45]: 233
+v[46]: 94
+v[47]: 212
+v[48]: 171
+v[49]: 178
+
+Breakpoint 2, test1 () at assignment3.s:84
+84	in assignment3.s
+(gdb) x\50i[1P50i/50i[C[C[C $x29 [K+32
+   0xfffffffff060:	.inst	0x00000067 ; undefined
+   0xfffffffff064:	.inst	0x000000c6 ; undefined
+   0xfffffffff068:	.inst	0x00000069 ; undefined
+   0xfffffffff06c:	.inst	0x00000073 ; undefined
+   0xfffffffff070:	.inst	0x00000051 ; undefined
+   0xfffffffff074:	.inst	0x000000ff ; undefined
+   0xfffffffff078:	.inst	0x0000004a ; undefined
+   0xfffffffff07c:	.inst	0x000000ec ; undefined
+   0xfffffffff080:	.inst	0x00000029 ; undefined
+   0xfffffffff084:	.inst	0x000000cd ; undefined
+   0xfffffffff088:	.inst	0x000000ba ; undefined
+   0xfffffffff08c:	.inst	0x000000ab ; undefined
+   0xfffffffff090:	.inst	0x000000f2 ; undefined
+   0xfffffffff094:	.inst	0x000000fb ; undefined
+   0xfffffffff098:	.inst	0x000000e3 ; undefined
+   0xfffffffff09c:	.inst	0x00000046 ; undefined
+   0xfffffffff0a0:	.inst	0x0000007c ; undefined
+   0xfffffffff0a4:	.inst	0x000000c2 ; undefined
+   0xfffffffff0a8:	.inst	0x00000054 ; undefined
+   0xfffffffff0ac:	.inst	0x000000f8 ; undefined
+   0xfffffffff0b0:	.inst	0x0000001b ; undefined
+   0xfffffffff0b4:	.inst	0x000000e8 ; undefined
+   0xfffffffff0b8:	.inst	0x000000e7 ; undefined
+   0xfffffffff0bc:	.inst	0x0000008d ; undefined
+   0xfffffffff0c0:	.inst	0x00000076 ; undefined
+   0xfffffffff0c4:	.inst	0x0000005a ; undefined
+   0xfffffffff0c8:	.inst	0x0000002e ; undefined
+   0xfffffffff0cc:	.inst	0x00000063 ; undefined
+   0xfffffffff0d0:	.inst	0x00000033 ; undefined
+   0xfffffffff0d4:	.inst	0x0000009f ; undefined
+   0xfffffffff0d8:	.inst	0x000000c9 ; undefined
+   0xfffffffff0dc:	.inst	0x0000009a ; undefined
+   0xfffffffff0e0:	.inst	0x00000066 ; undefined
+   0xfffffffff0e4:	.inst	0x00000032 ; undefined
+   0xfffffffff0e8:	.inst	0x0000000d ; undefined
+---Type <return> to continue, or q <return> to quit---
+   0xfffffffff0ec:	.inst	0x000000b7 ; undefined
+   0xfffffffff0f0:	.inst	0x00000031 ; undefined
+   0xfffffffff0f4:	.inst	0x00000058 ; undefined
+   0xfffffffff0f8:	.inst	0x000000a3 ; undefined
+   0xfffffffff0fc:	.inst	0x0000005a ; undefined
+   0xfffffffff100:	.inst	0x00000025 ; undefined
+   0xfffffffff104:	.inst	0x0000005d ; undefined
+   0xfffffffff108:	.inst	0x00000005 ; undefined
+   0xfffffffff10c:	.inst	0x00000017 ; undefined
+   0xfffffffff110:	.inst	0x00000058 ; undefined
+   0xfffffffff114:	.inst	0x000000e9 ; undefined
+   0xfffffffff118:	.inst	0x0000005e ; undefined
+   0xfffffffff11c:	.inst	0x000000d4 ; undefined
+   0xfffffffff120:	.inst	0x000000ab ; undefined
+   0xfffffffff124:	.inst	0x000000b2 ; undefined
+(gdb) c
+Continuing.
+
+Breakpoint 3, test2 () at assignment3.s:136
+136	in assignment3.s
+(gdb) cx/50i $x29+32
+   0xfffffffff060:	.inst	0x00000005 ; undefined
+   0xfffffffff064:	.inst	0x0000000d ; undefined
+   0xfffffffff068:	.inst	0x00000017 ; undefined
+   0xfffffffff06c:	.inst	0x0000001b ; undefined
+   0xfffffffff070:	.inst	0x00000025 ; undefined
+   0xfffffffff074:	.inst	0x00000029 ; undefined
+   0xfffffffff078:	.inst	0x0000002e ; undefined
+   0xfffffffff07c:	.inst	0x00000031 ; undefined
+   0xfffffffff080:	.inst	0x00000032 ; undefined
+   0xfffffffff084:	.inst	0x00000033 ; undefined
+   0xfffffffff088:	.inst	0x00000046 ; undefined
+   0xfffffffff08c:	.inst	0x0000004a ; undefined
+   0xfffffffff090:	.inst	0x00000051 ; undefined
+   0xfffffffff094:	.inst	0x00000054 ; undefined
+   0xfffffffff098:	.inst	0x00000058 ; undefined
+   0xfffffffff09c:	.inst	0x00000058 ; undefined
+   0xfffffffff0a0:	.inst	0x0000005a ; undefined
+   0xfffffffff0a4:	.inst	0x0000005a ; undefined
+   0xfffffffff0a8:	.inst	0x0000005d ; undefined
+   0xfffffffff0ac:	.inst	0x0000005e ; undefined
+   0xfffffffff0b0:	.inst	0x00000063 ; undefined
+   0xfffffffff0b4:	.inst	0x00000066 ; undefined
+   0xfffffffff0b8:	.inst	0x00000067 ; undefined
+   0xfffffffff0bc:	.inst	0x00000069 ; undefined
+   0xfffffffff0c0:	.inst	0x00000073 ; undefined
+   0xfffffffff0c4:	.inst	0x00000076 ; undefined
+   0xfffffffff0c8:	.inst	0x0000007c ; undefined
+   0xfffffffff0cc:	.inst	0x0000008d ; undefined
+   0xfffffffff0d0:	.inst	0x0000009a ; undefined
+   0xfffffffff0d4:	.inst	0x0000009f ; undefined
+   0xfffffffff0d8:	.inst	0x000000a3 ; undefined
+   0xfffffffff0dc:	.inst	0x000000ab ; undefined
+   0xfffffffff0e0:	.inst	0x000000ab ; undefined
+   0xfffffffff0e4:	.inst	0x000000b2 ; undefined
+   0xfffffffff0e8:	.inst	0x000000b7 ; undefined
+---Type <return> to continue, or q <return> to quit---
+   0xfffffffff0ec:	.inst	0x000000ba ; undefined
+   0xfffffffff0f0:	.inst	0x000000c2 ; undefined
+   0xfffffffff0f4:	.inst	0x000000c6 ; undefined
+   0xfffffffff0f8:	.inst	0x000000c9 ; undefined
+   0xfffffffff0fc:	.inst	0x000000cd ; undefined
+   0xfffffffff100:	.inst	0x000000d4 ; undefined
+   0xfffffffff104:	.inst	0x000000e3 ; undefined
+   0xfffffffff108:	.inst	0x000000e7 ; undefined
+   0xfffffffff10c:	.inst	0x000000e8 ; undefined
+   0xfffffffff110:	.inst	0x000000e9 ; undefined
+   0xfffffffff114:	.inst	0x000000ec ; undefined
+   0xfffffffff118:	.inst	0x000000f2 ; undefined
+   0xfffffffff11c:	.inst	0x000000f8 ; undefined
+   0xfffffffff120:	.inst	0x000000fb ; undefined
+   0xfffffffff124:	.inst	0x000000ff ; undefined
+(gdb) c
+Continuing.
+
+Sorted array:
+v[0]: 5
+v[1]: 13
+v[2]: 23
+v[3]: 27
+v[4]: 37
+v[5]: 41
+v[6]: 46
+v[7]: 49
+v[8]: 50
+v[9]: 51
+v[10]: 70
+v[11]: 74
+v[12]: 81
+v[13]: 84
+v[14]: 88
+v[15]: 88
+v[16]: 90
+v[17]: 90
+v[18]: 93
+v[19]: 94
+v[20]: 99
+v[21]: 102
+v[22]: 103
+v[23]: 105
+v[24]: 115
+v[25]: 118
+v[26]: 124
+v[27]: 141
+v[28]: 154
+v[29]: 159
+v[30]: 163
+v[31]: 171
+v[32]: 171
+v[33]: 178
+v[34]: 183
+v[35]: 186
+v[36]: 194
+v[37]: 198
+v[38]: 201
+v[39]: 205
+v[40]: 212
+v[41]: 227
+v[42]: 231
+v[43]: 232
+v[44]: 233
+v[45]: 236
+v[46]: 242
+v[47]: 248
+v[48]: 251
+v[49]: 255
+[Inferior 1 (process 19421) exited with code 013]
+(gdb) q
+]0;ayman.shahriar@csa2:~/cpsc-355/assignment3ayman.shahriar@csa2:~/cpsc-355/assignment3$ exit
+exit
+
+Script done on 2019-10-24 10:06:53-06:00

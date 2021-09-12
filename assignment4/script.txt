@@ -1,0 +1,95 @@
+Script started on 2019-11-07 21:25:17-07:00
+]0;ayman.shahriar@csa2:~/cpsc-355/assignment4ayman.shahriar@csa2:~/cpsc-355/assignment4$ gdb assign4
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from assign4...done.
+(gdb) b 52
+Breakpoint 1 at 0x400648: file assign4.s, line 52.
+(gdb) b 87
+Breakpoint 2 at 0x4006a8: file assign4.s, line 87.
+(gdb) r
+Starting program: /home/uga/ayman.shahriar/cpsc-355/assignment4/assign4 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-38.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+
+Breakpoint 1, main () at assign4.s:53
+53			adrp	x0, fmt5							// set 1st arg (high order bits)
+(gdb) rb 87r[K[Kx/12i $s[Kx29+16
+   0xfffffffff100:	.inst	0x00000000 ; undefined
+   0xfffffffff104:	.inst	0x00000000 ; undefined
+   0xfffffffff108:	.inst	0x00000002 ; undefined
+   0xfffffffff10c:	.inst	0x00000002 ; undefined
+   0xfffffffff110:	.inst	0x00000003 ; undefined
+   0xfffffffff114:	.inst	0x0000000c ; undefined
+   0xfffffffff118:	.inst	0x00000000 ; undefined
+   0xfffffffff11c:	.inst	0x00000000 ; undefined
+   0xfffffffff120:	.inst	0x00000002 ; undefined
+   0xfffffffff124:	.inst	0x00000002 ; undefined
+   0xfffffffff128:	.inst	0x00000003 ; undefined
+   0xfffffffff12c:	.inst	0x0000000c ; undefined
+(gdb) c
+Continuing.
+Initial cuboid values:
+Cuboid first origin = (0, 0)
+	Base width = 2	Base length = 2
+	Height = 3
+	Volume = 12
+
+Cuboid second origin = (0, 0)
+	Base width = 2	Base length = 2
+	Height = 3
+	Volume = 12
+
+
+Breakpoint 2, next2 () at assign4.s:89
+89			add	x0, x0, :lo12:fmt8						// set 1st arg (low 12 bits)
+(gdb) x/12i $x29+16
+   0xfffffffff100:	.inst	0x00000003 ; undefined
+   0xfffffffff104:	.inst	0xfffffffa ; undefined
+   0xfffffffff108:	.inst	0x00000002 ; undefined
+   0xfffffffff10c:	.inst	0x00000002 ; undefined
+   0xfffffffff110:	.inst	0x00000003 ; undefined
+   0xfffffffff114:	.inst	0x0000000c ; undefined
+   0xfffffffff118:	.inst	0x00000000 ; undefined
+   0xfffffffff11c:	.inst	0x00000000 ; undefined
+   0xfffffffff120:	.inst	0x00000008 ; undefined
+   0xfffffffff124:	.inst	0x00000008 ; undefined
+   0xfffffffff128:	.inst	0x0000000c ; undefined
+   0xfffffffff12c:	.inst	0x00000300 ; undefined
+(gdb) c
+Continuing.
+
+Changed cuboid values:
+Cuboid first origin = (3, -6)
+	Base width = 2	Base length = 2
+	Height = 3
+	Volume = 12
+
+Cuboid second origin = (0, 0)
+	Base width = 8	Base length = 8
+	Height = 12
+	Volume = 768
+
+[Inferior 1 (process 2169) exited with code 017]
+(gdb) q
+]0;ayman.shahriar@csa2:~/cpsc-355/assignment4ayman.shahriar@csa2:~/cpsc-355/assignment4$ exit
+exit
+
+Script done on 2019-11-07 21:30:06-07:00

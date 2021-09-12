@@ -1,0 +1,247 @@
+Script started on 2019-09-26 10:17:30-06:00
+]0;ayman.shahriar@csa3:~/cpsc-355/assignments/version2ayman.shahriar@csa3:~/cpsc-355/assignments/version2$ gdb 
+assign1b      assign1b.asm  assign1b.s    script2.txt   
+ayman.shahriar@csa3:~/cpsc-355/assignments/version2$ gdb assign1b
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from assign1b...done.
+(gdb) b 50
+Breakpoint 1 at 0x400600: file assign1b.s, line 50.
+(gdb) display/i $pc
+1: x/i $pc
+<error: No registers.>
+(gdb) r[Kni
+The program is not being run.
+(gdb) r
+Starting program: /home/uga/ayman.shahriar/cpsc-355/assignments/version2/assign1b 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-38.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+
+Breakpoint 1, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 3812] will be killed.
+
+Quit anyway? (y or n) y
+]0;ayman.shahriar@csa3:~/cpsc-355/assignments/version2ayman.shahriar@csa3:~/cpsc-355/assignments/version2$ gdb assign1b[8Pexitgdb assign1b[8Pexitgdb assign1b
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from assign1b...done.
+(gdb) b main
+Breakpoint 1 at 0x4005b8: file assign1b.s, line 13.
+(gdb) b 50
+Breakpoint 2 at 0x400600: file assign1b.s, line 50.
+(gdb) r
+Starting program: /home/uga/ayman.shahriar/cpsc-355/assignments/version2/assign1b 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-38.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+
+Breakpoint 1, main () at assign1b.s:13
+13	main: 	stp     x29, x30, [sp,-16]!			// Stores contents of x29, sp to the stack and allocates 16 bytes in stack memory
+(gdb) display/i
+Argument required (expression to compute).
+(gdb) display/i $pc
+1: x/i $pc
+=> 0x4005b8 <main>:	stp	x29, x30, [sp, #-16]!
+(gdb) r
+The program being debugged has been started already.
+Start it from the beginning? (y or n) n
+Program not restarted.
+(gdb) c
+Continuing.
+
+Breakpoint 2, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) p $x23
+$1 = -253
+(gdb) c
+Continuing.
+x = -10, y = -253, current max = -253
+
+Breakpoint 2, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) cp $x23
+$2 = -253
+(gdb) p $x23c[K
+Continuing.
+x = -9, y = -366, current max = -253
+
+Breakpoint 2, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) cp $x23
+$3 = -253
+(gdb) p $x23c[K
+Continuing.
+x = -8, y = -415, current max = -253
+
+Breakpoint 2, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) cp $x23
+$4 = -253
+(gdb) p $x23c[K
+Continuing.
+x = -7, y = -412, current max = -253
+
+Breakpoint 2, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) cp $x23
+$5 = -253
+(gdb) p $x23c[K
+Continuing.
+x = -6, y = -369, current max = -253
+
+Breakpoint 2, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) cp $x23
+$6 = -253
+(gdb) p $x23c[K
+Continuing.
+x = -5, y = -298, current max = -253
+
+Breakpoint 2, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) cp $x23
+$7 = -253
+(gdb) p $x23c[K
+Continuing.
+x = -4, y = -211, current max = -211
+
+Breakpoint 2, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) c
+Continuing.
+x = -3, y = -120, current max = -120
+
+Breakpoint 2, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) cp $x23
+$8 = -120
+(gdb) p $x23c[K
+Continuing.
+x = -2, y = -37, current max = -37
+
+Breakpoint 2, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) cp $x23
+$9 = -37
+(gdb) p $x23c[K
+Continuing.
+x = -1, y = 26, current max = 26
+
+Breakpoint 2, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) cp $x23
+$10 = 26
+(gdb) p $x23c[K
+Continuing.
+x = 0, y = 57, current max = 57
+
+Breakpoint 2, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) cp $x23
+$11 = 57
+(gdb) p $x23c[K
+Continuing.
+x = 1, y = 44, current max = 57
+
+Breakpoint 2, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) cp $x23
+$12 = 57
+(gdb) p $x23c[K
+Continuing.
+x = 2, y = -25, current max = 57
+
+Breakpoint 2, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) cp $x23
+$13 = 57
+(gdb) p $x23c[K
+Continuing.
+x = 3, y = -162, current max = 57
+
+Breakpoint 2, br1 () at assign1b.s:51
+51	        b.le    br2					// x22 is compared to x23. If x22 <= x23, then instruction jumps to br2
+1: x/i $pc
+=> 0x400600 <br1+4>:	b.le	0x400608 <br2>
+(gdb) cp $x23
+$14 = 57
+(gdb) p $x23c[K
+Continuing.
+x = 4, y = -379, current max = 57
+[Inferior 1 (process 3822) exited with code 042]
+(gdb) cp $x23
+No registers.
+(gdb) p $x23c[K
+The program is not being run.
+(gdb) q
+]0;ayman.shahriar@csa3:~/cpsc-355/assignments/version2ayman.shahriar@csa3:~/cpsc-355/assignments/version2$ exit
+exit
+
+Script done on 2019-09-26 10:21:17-06:00

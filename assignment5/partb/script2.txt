@@ -1,0 +1,15 @@
+Script started on 2019-11-24 17:29:27-07:00
+]0;ayman.shahriar@csa2:~/cpsc-355/assignment5ayman.shahriar@csa2:~/cpsc-355/assignment5$ g[Km4 assi[K[K[K5b.asm > a5b.s
+]0;ayman.shahriar@csa2:~/cpsc-355/assignment5ayman.shahriar@csa2:~/cpsc-355/assignment5$ gcc a5b.asm[K[K[Ks -o a5b -g
+]0;ayman.shahriar@csa2:~/cpsc-355/assignment5ayman.shahriar@csa2:~/cpsc-355/assignment5$ ./atb[K[K5b 1 1 2011
+January 1st, 2011
+]0;ayman.shahriar@csa2:~/cpsc-355/assignment5ayman.shahriar@csa2:~/cpsc-355/assignment5$ ./a5b 1 1 2011[1@2[C[C[1P 20112 20112 2011[C[C[C[C[C[K[K[K[K1999
+December 22nd, 1999
+]0;ayman.shahriar@csa2:~/cpsc-355/assignment5ayman.shahriar@csa2:~/cpsc-355/assignment5$ ./a5b 12 22 1999[2P 1 20112 22 1999[2P 1 20112 22 1999[K./a5b 12 22 1999 2011
+Usage:	a5b mm dd yyyy
+]0;ayman.shahriar@csa2:~/cpsc-355/assignment5ayman.shahriar@csa2:~/cpsc-355/assignment5$ cl[K[Kquit
+bash: quit: command not found
+]0;ayman.shahriar@csa2:~/cpsc-355/assignment5ayman.shahriar@csa2:~/cpsc-355/assignment5$ exit
+exit
+
+Script done on 2019-11-24 17:31:09-07:00

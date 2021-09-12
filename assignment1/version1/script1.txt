@@ -1,0 +1,596 @@
+Script started on 2019-09-26 10:02:35-06:00
+]0;ayman.shahriar@csa3:~/cpsc-355/assignments/version1ayman.shahriar@csa3:~/cpsc-355/assignments/version1$ gdb assign1a
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from assign1a...done.
+(gdb) b main
+Breakpoint 1 at 0x4005b8: file assign1a.s, line 9.
+(gdb) b 59
+Breakpoint 2 at 0x40062c: file assign1a.s, line 59.
+(gdb) r
+Starting program: /home/uga/ayman.shahriar/cpsc-355/assignments/version1/assign1a 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-38.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+
+Breakpoint 1, main () at assign1a.s:9
+warning: Source file is more recent than executable.
+9	
+(gdb) print/i $pc
+Format letter "i" is meaningless in "print" command.
+(gdb) display [K/i pc[K[K$pc
+1: x/i $pc
+=> 0x4005b8 <main>:	stp	x29, x30, [sp, #-16]!
+(gdb) si[K[Kni
+10	fmt: .string "x = %d, y = %d, current max = %d\n"	// creates the format string
+1: x/i $pc
+=> 0x4005bc <main+4>:	mov	x29, sp
+(gdb) ni
+13	        .global main					// makes label "main visible to the linker"
+1: x/i $pc
+=> 0x4005c0 <main+8>:	mov	x19, #0xfffffffffffffff6    	// #-10
+(gdb) ni
+test () at assign1a.s:14
+14	main:   stp     x29, x30, [sp,-16]!			// stores contents of x29, x30 to stack and allocates 16 bytes in stack memory
+1: x/i $pc
+=> 0x4005c4 <test>:	cmp	x19, #0x4
+(gdb) ni
+15	        mov     x29, sp					// updates FP (x29) to the current sp
+1: x/i $pc
+=> 0x4005c8 <test+4>:	b.gt	0x400648 <done>
+(gdb) ni
+20	        b.gt    done            			// when x > 4, then the loop will exited by jumping to the label "done"
+1: x/i $pc
+=> 0x4005cc <test+8>:	mul	x20, x19, x19
+(gdb) ni
+21	
+1: x/i $pc
+=> 0x4005d0 <test+12>:	mul	x20, x20, x19
+(gdb) ni
+22	
+1: x/i $pc
+=> 0x4005d4 <test+16>:	mov	x21, #0xfffffffffffffffe    	// #-2
+(gdb) ni
+23	        // the calculations for the assignment
+1: x/i $pc
+=> 0x4005d8 <test+20>:	mul	x20, x20, x21
+(gdb) ni
+24	        // for -2(x^3)
+1: x/i $pc
+=> 0x4005dc <test+24>:	add	x22, x22, x20
+(gdb) ni
+27	        mov     x21, -2         			// x21 = -2
+1: x/i $pc
+=> 0x4005e0 <test+28>:	mul	x20, x19, x19
+(gdb) ni
+28	        mul     x20, x20, x21   			// x20 = x20 * x21
+1: x/i $pc
+=> 0x4005e4 <test+32>:	mov	x21, #0xffffffffffffffea    	// #-22
+(gdb) ni
+29	        add     x22, x22, x20   			// x22 = x22 * x20
+1: x/i $pc
+=> 0x4005e8 <test+36>:	mul	x20, x20, x21
+(gdb) ni
+30	
+1: x/i $pc
+=> 0x4005ec <test+40>:	add	x22, x22, x20
+(gdb) ni
+33	        mov     x21, -22        			// x21 = -22
+1: x/i $pc
+=> 0x4005f0 <test+44>:	mov	x20, x19
+(gdb) ni
+34	        mul     x20, x20, x21   			// x20 = x20 * x21
+1: x/i $pc
+=> 0x4005f4 <test+48>:	mov	x21, #0xb                   	// #11
+(gdb) ni
+36	
+1: x/i $pc
+=> 0x4005f8 <test+52>:	mul	x20, x20, x21
+(gdb) ni
+37	        // for 11(x)
+1: x/i $pc
+=> 0x4005fc <test+56>:	add	x22, x22, x20
+(gdb) ni
+40	
+1: x/i $pc
+=> 0x400600 <test+60>:	add	x22, x22, #0x39
+(gdb) ni
+43	
+1: x/i $pc
+=> 0x400604 <test+64>:	cmn	x19, #0xa
+(gdb) ni
+44	        // for 57
+1: x/i $pc
+=> 0x400608 <test+68>:	b.ne	0x400610 <br1>  // b.any
+(gdb) ni
+45	        add     x22, x22, 57    			// x22 = x22 + 57
+1: x/i $pc
+=> 0x40060c <test+72>:	mov	x23, x22
+(gdb) ni
+br1 () at assign1a.s:50
+50	        mov     x23, x22        			// x23 = x22
+1: x/i $pc
+=> 0x400610 <br1>:	cmp	x22, x23
+(gdb) ni
+51	
+1: x/i $pc
+=> 0x400614 <br1+4>:	b.le	0x40061c <br2>
+(gdb) ni
+br2 () at assign1a.s:55
+55	br1:    cmp     x22, x23        			// compares x22 with x23
+1: x/i $pc
+=> 0x40061c <br2>:	adrp	x0, 0x400000
+(gdb) ni
+56	        b.le    br2             			// if b22 <= x23, then jump to label br3
+1: x/i $pc
+=> 0x400620 <br2+4>:	add	x0, x0, #0x594
+(gdb) ni
+57	        mov     x23, x22        			// x23 = x22    
+1: x/i $pc
+=> 0x400624 <br2+8>:	mov	x1, x19
+(gdb) ni
+58	
+1: x/i $pc
+=> 0x400628 <br2+12>:	mov	x2, x22
+(gdb) ni
+
+Breakpoint 2, br2 () at assign1a.s:59
+59	        // part of print
+1: x/i $pc
+=> 0x40062c <br2+16>:	mov	x3, x23
+(gdb) p x19
+No symbol "x19" in current context.
+(gdb) p $x19
+$1 = -10
+(gdb) p$x20[K22
+Undefined command: "p$x222".  Try "help".
+(gdb) p$x222[C[K
+Undefined command: "p$x22".  Try "help".
+(gdb) p$x22 $x22
+$2 = -253
+(gdb) p $x22[C[K3
+$3 = -253
+(gdb) c
+Continuing.
+x = -10, y = -253, current max = -253
+
+Breakpoint 2, br2 () at assign1a.s:59
+59	        // part of print
+1: x/i $pc
+=> 0x40062c <br2+16>:	mov	x3, x23
+(gdb) ni
+60	br2:    adrp    x0, fmt
+1: x/i $pc
+=> 0x400630 <br2+20>:	bl	0x400480 <printf@plt>
+(gdb) ni
+x = -9, y = -366, current max = -253
+63	        mov     x2, x22         			// to print y
+1: x/i $pc
+=> 0x400634 <br2+24>:	mov	x20, #0x0                   	// #0
+(gdb) ni
+64	        mov     x3, x23         			// to print max
+1: x/i $pc
+=> 0x400638 <br2+28>:	mov	x21, #0x0                   	// #0
+(gdb) ni
+65	        bl      printf          			// branch statement that jumps to printf
+1: x/i $pc
+=> 0x40063c <br2+32>:	mov	x22, #0x0                   	// #0
+(gdb) ni
+68	        mov x20, 0					// clear x20 register
+1: x/i $pc
+=> 0x400640 <br2+36>:	add	x19, x19, #0x1
+(gdb) ni
+69	        mov x21, 0					// clear x21 register
+1: x/i $pc
+=> 0x400644 <br2+40>:	b	0x4005c4 <test>
+(gdb) ni
+
+Breakpoint 2, br2 () at assign1a.s:59
+59	        // part of print
+1: x/i $pc
+=> 0x40062c <br2+16>:	mov	x3, x23
+(gdb) ni
+60	br2:    adrp    x0, fmt
+1: x/i $pc
+=> 0x400630 <br2+20>:	bl	0x400480 <printf@plt>
+(gdb) ni
+x = -8, y = -415, current max = -253
+63	        mov     x2, x22         			// to print y
+1: x/i $pc
+=> 0x400634 <br2+24>:	mov	x20, #0x0                   	// #0
+(gdb) ni
+64	        mov     x3, x23         			// to print max
+1: x/i $pc
+=> 0x400638 <br2+28>:	mov	x21, #0x0                   	// #0
+(gdb) si
+65	        bl      printf          			// branch statement that jumps to printf
+1: x/i $pc
+=> 0x40063c <br2+32>:	mov	x22, #0x0                   	// #0
+(gdb) si
+68	        mov x20, 0					// clear x20 register
+1: x/i $pc
+=> 0x400640 <br2+36>:	add	x19, x19, #0x1
+(gdb) si
+69	        mov x21, 0					// clear x21 register
+1: x/i $pc
+=> 0x400644 <br2+40>:	b	0x4005c4 <test>
+(gdb) si
+test () at assign1a.s:14
+14	main:   stp     x29, x30, [sp,-16]!			// stores contents of x29, x30 to stack and allocates 16 bytes in stack memory
+1: x/i $pc
+=> 0x4005c4 <test>:	cmp	x19, #0x4
+(gdb) si
+15	        mov     x29, sp					// updates FP (x29) to the current sp
+1: x/i $pc
+=> 0x4005c8 <test+4>:	b.gt	0x400648 <done>
+(gdb) si
+20	        b.gt    done            			// when x > 4, then the loop will exited by jumping to the label "done"
+1: x/i $pc
+=> 0x4005cc <test+8>:	mul	x20, x19, x19
+(gdb) si
+21	
+1: x/i $pc
+=> 0x4005d0 <test+12>:	mul	x20, x20, x19
+(gdb) si
+22	
+1: x/i $pc
+=> 0x4005d4 <test+16>:	mov	x21, #0xfffffffffffffffe    	// #-2
+(gdb) si
+23	        // the calculations for the assignment
+1: x/i $pc
+=> 0x4005d8 <test+20>:	mul	x20, x20, x21
+(gdb) si
+24	        // for -2(x^3)
+1: x/i $pc
+=> 0x4005dc <test+24>:	add	x22, x22, x20
+(gdb) si
+27	        mov     x21, -2         			// x21 = -2
+1: x/i $pc
+=> 0x4005e0 <test+28>:	mul	x20, x19, x19
+(gdb) si
+28	        mul     x20, x20, x21   			// x20 = x20 * x21
+1: x/i $pc
+=> 0x4005e4 <test+32>:	mov	x21, #0xffffffffffffffea    	// #-22
+(gdb) sis[K
+29	        add     x22, x22, x20   			// x22 = x22 * x20
+1: x/i $pc
+=> 0x4005e8 <test+36>:	mul	x20, x20, x21
+(gdb) si
+30	
+1: x/i $pc
+=> 0x4005ec <test+40>:	add	x22, x22, x20
+(gdb) si
+33	        mov     x21, -22        			// x21 = -22
+1: x/i $pc
+=> 0x4005f0 <test+44>:	mov	x20, x19
+(gdb) si
+34	        mul     x20, x20, x21   			// x20 = x20 * x21
+1: x/i $pc
+=> 0x4005f4 <test+48>:	mov	x21, #0xb                   	// #11
+(gdb) si
+36	
+1: x/i $pc
+=> 0x4005f8 <test+52>:	mul	x20, x20, x21
+(gdb) si
+37	        // for 11(x)
+1: x/i $pc
+=> 0x4005fc <test+56>:	add	x22, x22, x20
+(gdb) si
+40	
+1: x/i $pc
+=> 0x400600 <test+60>:	add	x22, x22, #0x39
+(gdb) si
+43	
+1: x/i $pc
+=> 0x400604 <test+64>:	cmn	x19, #0xa
+(gdb) si
+44	        // for 57
+1: x/i $pc
+=> 0x400608 <test+68>:	b.ne	0x400610 <br1>  // b.any
+(gdb) si
+br1 () at assign1a.s:50
+50	        mov     x23, x22        			// x23 = x22
+1: x/i $pc
+=> 0x400610 <br1>:	cmp	x22, x23
+(gdb) si
+51	
+1: x/i $pc
+=> 0x400614 <br1+4>:	b.le	0x40061c <br2>
+(gdb) si
+br2 () at assign1a.s:55
+55	br1:    cmp     x22, x23        			// compares x22 with x23
+1: x/i $pc
+=> 0x40061c <br2>:	adrp	x0, 0x400000
+(gdb) si
+56	        b.le    br2             			// if b22 <= x23, then jump to label br3
+1: x/i $pc
+=> 0x400620 <br2+4>:	add	x0, x0, #0x594
+(gdb) si
+57	        mov     x23, x22        			// x23 = x22    
+1: x/i $pc
+=> 0x400624 <br2+8>:	mov	x1, x19
+(gdb) si
+58	
+1: x/i $pc
+=> 0x400628 <br2+12>:	mov	x2, x22
+(gdb) si
+
+Breakpoint 2, br2 () at assign1a.s:59
+59	        // part of print
+1: x/i $pc
+=> 0x40062c <br2+16>:	mov	x3, x23
+(gdb) si[K[Kp[Ksini[1Pcp $x23[C[K[K19
+$4 = -7
+(gdb) p $x19[K[K22
+$5 = -412
+(gdb) p $x22[K3
+$6 = -253
+(gdb) si
+60	br2:    adrp    x0, fmt
+1: x/i $pc
+=> 0x400630 <br2+20>:	bl	0x400480 <printf@plt>
+(gdb) si
+0x0000000000400480 in printf@plt ()
+1: x/i $pc
+=> 0x400480 <printf@plt>:	adrp	x16, 0x420000
+(gdb) si
+0x0000000000400484 in printf@plt ()
+1: x/i $pc
+=> 0x400484 <printf@plt+4>:	ldr	x17, [x16, #24]
+(gdb) si
+0x0000000000400488 in printf@plt ()
+1: x/i $pc
+=> 0x400488 <printf@plt+8>:	add	x16, x16, #0x18
+(gdb) si
+0x000000000040048c in printf@plt ()
+1: x/i $pc
+=> 0x40048c <printf@plt+12>:	br	x17
+(gdb) si
+0x0000ffffbf58a320 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a320 <printf>:	stp	x29, x30, [sp, #-304]!
+(gdb) si
+0x0000ffffbf58a324 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a324 <printf+4>:	adrp	x8, 0xffffbf6ab000 <__libio_codecvt+168>
+(gdb) si
+0x0000ffffbf58a328 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a328 <printf+8>:	mov	w10, #0xffffffc8            	// #-56
+(gdb) si
+0x0000ffffbf58a32c in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a32c <printf+12>:	mov	x29, sp
+(gdb) si
+0x0000ffffbf58a330 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a330 <printf+16>:	ldr	x8, [x8, #3888]
+(gdb) si
+0x0000ffffbf58a334 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a334 <printf+20>:	str	x19, [sp, #16]
+(gdb) si
+0x0000ffffbf58a338 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a338 <printf+24>:	adrp	x19, 0xffffbf6ab000 <__libio_codecvt+168>
+(gdb) si
+0x0000ffffbf58a33c in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a33c <printf+28>:	str	x1, [sp, #248]
+(gdb) si
+0x0000ffffbf58a340 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a340 <printf+32>:	mov	x1, x0
+(gdb) si
+0x0000ffffbf58a344 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a344 <printf+36>:	add	x0, sp, #0x130
+(gdb) si
+0x0000ffffbf58a348 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a348 <printf+40>:	ldr	x19, [x19, #3816]
+(gdb) si
+0x0000ffffbf58a34c in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a34c <printf+44>:	add	x11, sp, #0xf0
+(gdb) si
+0x0000ffffbf58a350 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a350 <printf+48>:	mov	w9, #0xffffff80            	// #-128
+(gdb) si
+0x0000ffffbf58a354 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a354 <printf+52>:	str	x0, [sp, #72]
+(gdb) si
+0x0000ffffbf58a358 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a358 <printf+56>:	str	x11, [sp, #88]
+(gdb) si
+0x0000ffffbf58a35c in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a35c <printf+60>:	stp	w10, w9, [sp, #96]
+(gdb) si
+0x0000ffffbf58a360 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a360 <printf+64>:	ldr	x0, [x8]
+(gdb) si
+0x0000ffffbf58a364 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a364 <printf+68>:	add	x8, sp, #0x130
+(gdb) si
+0x0000ffffbf58a368 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a368 <printf+72>:	str	x8, [sp, #80]
+(gdb) ni
+0x0000ffffbf58a36c in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a36c <printf+76>:	ldr	x8, [x19]
+(gdb) ni
+0x0000ffffbf58a370 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a370 <printf+80>:	str	x8, [sp, #104]
+(gdb) ni
+0x0000ffffbf58a374 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a374 <printf+84>:	mov	x8, #0x0                   	// #0
+(gdb) ni
+0x0000ffffbf58a378 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a378 <printf+88>:	ldp	x8, x9, [sp, #88]
+(gdb) ni
+0x0000ffffbf58a37c in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a37c <printf+92>:	stp	x8, x9, [sp, #48]
+(gdb) ni
+0x0000ffffbf58a380 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a380 <printf+96>:	ldp	x10, x11, [sp, #72]
+(gdb) ni
+0x0000ffffbf58a384 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a384 <printf+100>:	stp	x10, x11, [sp, #32]
+(gdb) ni
+0x0000ffffbf58a388 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a388 <printf+104>:	str	q0, [sp, #112]
+(gdb) si
+0x0000ffffbf58a38c in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a38c <printf+108>:	str	q1, [sp, #128]
+(gdb) si
+0x0000ffffbf58a390 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a390 <printf+112>:	str	q2, [sp, #144]
+(gdb) ni
+0x0000ffffbf58a394 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a394 <printf+116>:	str	q3, [sp, #160]
+(gdb) si
+0x0000ffffbf58a398 in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a398 <printf+120>:	str	q4, [sp, #176]
+(gdb) sis
+Undefined command: "sis".  Try "help".
+(gdb) ni
+0x0000ffffbf58a39c in printf () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf58a39c <printf+124>:	str	q5, [sp, #192]
+(gdb) c
+Continuing.
+x = -7, y = -412, current max = -253
+
+Breakpoint 2, br2 () at assign1a.s:59
+59	        // part of print
+1: x/i $pc
+=> 0x40062c <br2+16>:	mov	x3, x23
+(gdb) r
+The program being debugged has been started already.
+Start it from the beginning? (y or n) n
+Program not restarted.
+(gdb) c
+Continuing.
+x = -6, y = -369, current max = -253
+
+Breakpoint 2, br2 () at assign1a.s:59
+59	        // part of print
+1: x/i $pc
+=> 0x40062c <br2+16>:	mov	x3, x23
+(gdb) c
+Continuing.
+x = -5, y = -298, current max = -253
+
+Breakpoint 2, br2 () at assign1a.s:59
+59	        // part of print
+1: x/i $pc
+=> 0x40062c <br2+16>:	mov	x3, x23
+(gdb) c
+Continuing.
+x = -4, y = -211, current max = -211
+
+Breakpoint 2, br2 () at assign1a.s:59
+59	        // part of print
+1: x/i $pc
+=> 0x40062c <br2+16>:	mov	x3, x23
+(gdb) c
+Continuing.
+x = -3, y = -120, current max = -120
+
+Breakpoint 2, br2 () at assign1a.s:59
+59	        // part of print
+1: x/i $pc
+=> 0x40062c <br2+16>:	mov	x3, x23
+(gdb) c
+Continuing.
+x = -2, y = -37, current max = -37
+
+Breakpoint 2, br2 () at assign1a.s:59
+59	        // part of print
+1: x/i $pc
+=> 0x40062c <br2+16>:	mov	x3, x23
+(gdb) c
+Continuing.
+x = -1, y = 26, current max = 26
+
+Breakpoint 2, br2 () at assign1a.s:59
+59	        // part of print
+1: x/i $pc
+=> 0x40062c <br2+16>:	mov	x3, x23
+(gdb) c
+Continuing.
+x = 0, y = 57, current max = 57
+
+Breakpoint 2, br2 () at assign1a.s:59
+59	        // part of print
+1: x/i $pc
+=> 0x40062c <br2+16>:	mov	x3, x23
+(gdb) c
+Continuing.
+x = 1, y = 44, current max = 57
+
+Breakpoint 2, br2 () at assign1a.s:59
+59	        // part of print
+1: x/i $pc
+=> 0x40062c <br2+16>:	mov	x3, x23
+(gdb) c
+Continuing.
+x = 2, y = -25, current max = 57
+
+Breakpoint 2, br2 () at assign1a.s:59
+59	        // part of print
+1: x/i $pc
+=> 0x40062c <br2+16>:	mov	x3, x23
+(gdb) c
+Continuing.
+x = 3, y = -162, current max = 57
+
+Breakpoint 2, br2 () at assign1a.s:59
+59	        // part of print
+1: x/i $pc
+=> 0x40062c <br2+16>:	mov	x3, x23
+(gdb) c
+Continuing.
+x = 4, y = -379, current max = 57
+[Inferior 1 (process 2497) exited with code 042]
+(gdb) c
+The program is not being run.
+(gdb) q
+]0;ayman.shahriar@csa3:~/cpsc-355/assignments/version1ayman.shahriar@csa3:~/cpsc-355/assignments/version1$ exit
+exit
+
+Script done on 2019-09-26 10:08:57-06:00

@@ -1,0 +1,250 @@
+Script started on 2019-10-11 09:36:07-06:00
+]0;ayman.shahriar@csa3:~/cpsc-355/assignment2ayman.shahriar@csa3:~/cpsc-355/assignment2$ gdb assign2a
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from assign2a...done.
+(gdb) b main
+Breakpoint 1 at 0x400614: file assign2a.s, line 30.
+(gdb) b 80
+Breakpoint 2 at 0x400690: file assign2a.s, line 80.
+(gdb) b 92
+Breakpoint 3 at 0x4006a4: file assign2a.s, line 92.
+(gdb) b 110
+Breakpoint 4 at 0x4006cc: file assign2a.s, line 110.
+(gdb) r
+Starting program: /home/uga/ayman.shahriar/cpsc-355/assignment2/assign2a 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-38.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+
+Breakpoint 1, main () at assign2a.s:30
+30	main:		stp	x29, x30, [sp, -16]!							// Stores contents of x29, sp to the stack
+(gdb) c
+Continuing.
+multiplier = 0x00000046 (70)   multiplicand = 0xfefefefe (-16843010)
+
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) crb 110[1P9280main[2P8092110r[Kc[Kcrb 110[1P9280main[2P8092110r[Kc[Kp $w20
+$1 = 70
+(gdb) p $w20[K2[K1
+$2 = 4278124286
+(gdb) p $w21[K2
+$3 = 0
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) cp $w2210c[Kp $w20
+$4 = 35
+(gdb) p $w20c[Kp $w221
+$5 = 4278124286
+(gdb) p $w210c[Kp $w2212
+$6 = 0
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 2, test () at assign2a.s:81
+81			b.lt	start									// if w23 is less than 32, branch to start
+(gdb) c
+Continuing.
+
+Breakpoint 3, next2 () at assign2a.s:93
+93			add	x0, x0, :lo12:fmt2							// set first arg (lower 12 bits)
+(gdb) c[Kp $w20
+$7 = 3115956596
+(gdb) p $w20[K1
+$8 = 4278124286
+(gdb) p $w21[K2
+$9 = 4294967295
+(gdb) c
+Continuing.
+product = 0x-1  multiplier = 0xb9b9b974 
+
+Breakpoint 4, next2 () at assign2a.s:110
+110			adrp	x0, fmt3								// set first arg (high order bits)
+(gdb) cp $w2210c[Kp $w20
+$10 = 3115956596
+(gdb) p $w20c[Kp $w221
+$11 = 4278124286
+(gdb) p $w210c[Kp $w201[Kp $w210c[Kp $w22
+$12 = 4294967295
+(gdb) p $w22[K[K[Kx25
+$13 = -1179010700
+(gdb) r[Kc
+Continuing.
+64-bit result = 0xffffffffb9b9b974 (-1179010700)
+[Inferior 1 (process 2636) exited with code 061]
+(gdb) q
+]0;ayman.shahriar@csa3:~/cpsc-355/assignment2ayman.shahriar@csa3:~/cpsc-355/assignment2$ exit
+exit
+
+Script done on 2019-10-11 09:39:00-06:00
